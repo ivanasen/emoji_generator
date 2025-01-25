@@ -23,8 +23,10 @@ The project goal: I have to poo -> 🙋🚽💩
 
 # Harder solution: (maybe try doing after we have previous)
 
-Note: Have original message mixed with emojis that are generated (hard) 
+- Note: Have original message mixed with emojis that are generated (hard) 
 Something similar to https://github.com/gghati/Emojifier
+
+- Another LSTM example: https://github.com/niladridutt/Text_to_Emoji
 
 # We don't have a life solution and nothing better to do:
 
