@@ -1,17 +1,5 @@
 # Emoji project
 
-Don't generate emoji picture
-
-## Idea 1: Generate sequence of existing emojis (easier) 
-
-- Stemming
-- Word embedding (neural network)
-- Cosine similarity
-- Parsing ???
-
-## Idea 2: Have original message mixed with emojis that are generated (hard) 
-- Neural network
-
 ## Links
 
 dataset: https://github.com/datasets/emojis
@@ -35,10 +23,10 @@ The project goal: I have to poo -> 🙋🚽💩
 
 # Harder solution: (maybe try doing after we have previous)
 
+Note: Have original message mixed with emojis that are generated (hard) 
 Something similar to https://github.com/gghati/Emojifier
 
 # We don't have a life solution and nothing better to do:
 
 https://huggingface.co/cardiffnlp/twitter-roberta-base-emoji
-
 
