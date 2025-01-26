@@ -5,6 +5,8 @@
 - dataset: https://github.com/datasets/emojis
 - stemming nltk: https://www.geeksforgeeks.org/python-stemming-words-with-nltk/
 - Twitter emoji dataset: https://www.kaggle.com/datasets/hariharasudhanas/twitter-emoji-prediction?select=Train.csv
+- Word embedding tutorial with Pytorch: https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html
+- Statquest word embeddings: https://www.youtube.com/watch?v=viZrOnJclY0
 
 # Simple solution:
 
