@@ -1,3 +1,5 @@
 .venv/
 text8.zip
 __pycache__
+
+.bin/
