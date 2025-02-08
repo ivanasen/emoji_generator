@@ -15,7 +15,7 @@ stop_words = set(stopwords.words("english"))
 
 UNK_TOKEN = "<UNK>"
 WORD_TO_IDX_FILE = "word_to_idx"
-MODEL_PATH = "skip_gram_2025-02-05_12_42_09"
+MODEL_PATH = "skip_gram_2025-02-05_00_23_07"
 THRESHOLD = 0.25
 embeddings_dim = 300
 context_window = 3

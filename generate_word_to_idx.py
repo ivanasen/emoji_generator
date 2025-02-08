@@ -4,7 +4,7 @@ import os
 
 UNK_TOKEN = "<UNK>"
 UNK_IDX = 0
-MIN_ACCURANCES = 10
+MIN_ACCURANCES = 20
 WORD_TO_IDX_FILE = "word_to_idx"
 
 def get_text8_data():
