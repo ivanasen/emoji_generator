@@ -141,6 +141,28 @@ model = SkipGramLanguageModel(word_to_idx, embeddings_dim, context_window)
 state_dict = torch.load(MODEL_PATH, device)
 model.load_state_dict(state_dict)
 
+
+class SkipGramModel:
+    def __init__(self, model: SkipGramLanguageModel, emojis_dataset: pd.DataFrame):
+        self.model = model
+        self.stop_words = stop_words
+
+        emojis = dict(zip(emojis_dataset["Name"], emojis_dataset["Representation"]))
+
+        self.emoji_embeddings = {
+            (emojis[name], name): model.embed_phrase(name)
+            for name in emojis.keys()
+            if model.embed_phrase(name) is not None
+        }
+
+        # print(emojis["jack-o-lantern"])
+
+    def sent_to_emojis(self, sent: str) -> str:
+        return self.model.sent_to_emojis(sent, self.emoji_embeddings, self.stop_words)
+
+    __call__ = sent_to_emojis
+
+
 # print(model.find_closest_embeddings("love", word_to_idx, n_closest=10))
 
 # hot_beverage = model.embed_phrase("hot beverage", stop_words)
@@ -160,24 +182,17 @@ model.load_state_dict(state_dict)
 # # No embeddings for bouquet
 # print(f"{word_to_idx["bouquet"]}")
 
-emojis_dataset = pd.read_csv("./emojis.csv")
-emojis = dict(zip(emojis_dataset["Name"], emojis_dataset["Representation"]))
 
-# print(emojis["jack-o-lantern"])
+# skip_gram_model = SkipGramModel(model, emojis_dataset)
 
-emoji_embeddings = {
-    (emojis[name], name): model.embed_phrase(name)
-    for name in emojis.keys()
-    if model.embed_phrase(name) is not None
-}
+# sents = [
+#     "coffee",
+#     "chicken lays eggs bouquet",
+#     "Flexin' in a bikini on national television- Things I never would have imagined for 500, Alex -- Did…",
+#     "This is a test sentence, grab a coffee with chicken",
+#     "extra cheese crispy chicken strips",
+#     "avocado",
+# ]
 
-
-sents = [
-    "coffee",
-    "chicken lays eggs bouquet",
-    "Flexin' in a bikini on national television- Things I never would have imagined for 500, Alex -- Did…",
-    "This is a test sentence, grab a coffee with chicken",
-]
-
-for sent in sents:
-    print(f"{sent} ->\n{model.sent_to_emojis(sent, emoji_embeddings, stop_words)}\n")
+# for sent in sents:
+#     print(f"{sent} ->\n{skip_gram_model(sent)}\n")
